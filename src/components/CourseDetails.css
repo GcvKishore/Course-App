@@ -1,0 +1,32 @@
+/* src/components/CourseDetails.css */
+
+.course-details {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-not-found {
+    color: red;
+    font-size: 18px;
+  }
+  
+  .enroll-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .enrolled-status {
+    color: #4caf50;
+    font-size: 18px;
+    font-weight: bold;
+  }  

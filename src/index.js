@@ -11,10 +11,11 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <Routes>
-        <Route path="/" exact element={<CourseList />} />
+        <Route path="/" element={<CourseList />} />
         <Route path="/course/:id" element={<CourseDetails />} />
         <Route path="/dashboard" element={<StudentDashboard />} />
       </Routes>
+      
     </Router>
   </Provider>
 );
