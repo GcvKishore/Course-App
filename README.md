@@ -53,8 +53,6 @@ npm
 Installation
 Clone the repository:
 
-bash
-Copy code
 git clone https://github.com/your-username/edu-tech-hub.git
 
 
