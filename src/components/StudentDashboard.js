@@ -1,41 +1,73 @@
 // StudentDashboard.js
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { markCourseCompleted } from '../actions'; // Update with your actual action creator
+import { markCourseCompleted } from '../actions';
 import courses from '../courses';
+import './StudentDashboard.css'; 
+import { Link } from 'react-router-dom';
+
+const getProgressBarColor = (progress) => {
+  if (progress === 0) {
+    return 'red';
+  } else if (progress === 100) {
+    return 'green';
+  } else {
+    return 'yellow';
+  }
+};
+
 const StudentDashboard = ({ enrolledCourses, markCourseCompleted }) => {
+  const [completedCourses, setCompletedCourses] = useState([]);
+
+  const handleMarkCompleted = (courseId) => {
+    markCourseCompleted(courseId);
+    setCompletedCourses([...completedCourses, courseId]);
+  };
+
   return (
     <div>
       <h2>Student Dashboard</h2>
-      <div>
-          <div key={courses.id}>
-            <img src={courses.thumbnail} alt={courses.name} style={{ width: '100px', height: '100px' }} />
-            <h3>{courses.name}</h3>
-            <p>Instructor: {courses.instructor}</p>
-            <p>Due Date: {courses.dueDate}</p>
-            <p>Progress: {courses.progress}%</p>
-            <button onClick={() => markCourseCompleted(courses.id)}>Mark as Completed</button>
-
-            <div key={courses.id}>
-            <img src={courses.thumbnail} alt={courses.name} style={{ width: '100px', height: '100px' }} />
-            <h3>{courses.name}</h3>
-            <p>Instructor: {courses.instructor}</p>
-            <p>Due Date: {courses.dueDate}</p>
-            <p>Progress: {courses.progress}%</p>
-            <button onClick={() => markCourseCompleted(courses.id)}>Mark as Completed</button>
+      <div className="course-list">
+        {courses.map((course) => (
+          <div key={course.id} className="course-card">
+            <img
+              src={process.env.PUBLIC_URL + course.thumbnail}
+              alt={course.name}
+              style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: 'auto' }}
+            />
+             <Link to={`/course/${course.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+              <h3>{course.name}</h3>
+            </Link>
+            <div className="course-details">
+              <p>Instructor: {course.instructor}</p>
+              <p>Due Date: {course.dueDate}</p>
+              <div className="progress-bar-container">
+                <div
+                  className={`progress-bar ${getProgressBarColor(course.progress)}`}
+                  style={{
+                    width: `${course.progress}%`,
+                  }}
+                />
+              </div>
+              <p>
+                Progress: <span className={getProgressBarColor(course.progress)}>{course.progress}%</span>
+              </p>
+              <button
+                onClick={() => handleMarkCompleted(course.id)}
+                disabled={course.progress !== 100 || completedCourses.includes(course.id)}
+              >
+                Mark as Completed
+              </button>
+              {completedCourses.includes(course.id) && <strong>Completed</strong>}
+            </div>
           </div>
-          </div>
-      </div>
-      <br/>
-      <div>
-        
+        ))}
       </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log('enrolledCourses in mapStateToProps:', state.enrolledCourses);
   return {
     enrolledCourses: state.enrolledCourses,
   };

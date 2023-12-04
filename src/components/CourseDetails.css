@@ -9,6 +9,10 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  .dashboard-button{
+    text-decoration: none;
+  }
   
   .course-not-found {
     color: red;
@@ -23,6 +27,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
   }
   
   .enrolled-status {

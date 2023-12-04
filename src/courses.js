@@ -5,7 +5,7 @@ const courses = [
     instructor: 'John Doe',
     description: 'Learn the basics of React Native development and build your first mobile app.',
     enrollmentStatus: 'Open',
-    thumbnail: 'your.image.here',
+    thumbnail: require('./images/ReactNative.png'), 
     duration: '8 weeks',
     schedule: 'Tuesdays and Thursdays, 6:00 PM - 8:00 PM',
     location: 'Online',
@@ -59,6 +59,8 @@ const courses = [
         email: 'diana@example.com',
       },
     ],
+    dueDate: '2023-12-31', 
+    progress: 30,
   },
   {
     id: 2,
@@ -66,7 +68,7 @@ const courses = [
     instructor: 'Jane Smith',
     description: 'Become a full-stack web developer in 12 weeks. Learn HTML, CSS, JavaScript, and more.',
     enrollmentStatus: 'Open',
-    thumbnail: 'your.image.here',
+    thumbnail: require('./images/WebDevelopmentBootcamp.jpeg'), // Update the path as needed
     duration: '12 weeks',
     schedule: 'Mondays and Wednesdays, 7:00 PM - 9:00 PM',
     location: 'In-Person',
@@ -120,6 +122,8 @@ const courses = [
         email: 'harry@example.com',
       },
     ],
+    dueDate: '2023-12-05', 
+    progress: 100,
   },
   {
     id: 3,
@@ -127,7 +131,7 @@ const courses = [
     instructor: 'Dr. Amanda Rodriguez',
     description: 'Explore the world of data science. Learn statistical analysis, machine learning, and more.',
     enrollmentStatus: 'Open',
-    thumbnail: 'your.image.here',
+    thumbnail: require('./images/DS.jpeg'), // Update the path as needed
     duration: '10 weeks',
     schedule: 'Tuesdays and Thursdays, 5:00 PM - 7:00 PM',
     location: 'Online',
@@ -181,6 +185,71 @@ const courses = [
         email: 'laura@example.com',
       },
     ],
+    dueDate: '2023-12-31', 
+    progress: 0,
+  },
+  {
+    id: 4,
+    name: 'Node.js Masterclass',
+    instructor: 'Alex Johnson',
+    description: 'Master the art of server-side development with Node.js. Learn to build scalable and efficient web applications.',
+    enrollmentStatus: 'Open',
+    thumbnail: require('./images/nodejs.png'), // Update the path as needed
+    duration: '10 weeks',
+    schedule: 'Wednesdays and Fridays, 6:30 PM - 8:30 PM',
+    location: 'Online',
+    prerequisites: ['Basic JavaScript knowledge', 'Understanding of web development concepts'],
+    syllabus: [
+      {
+        week: 1,
+        topic: 'Introduction to Node.js',
+        content: 'Overview of Node.js, setting up the Node.js environment.',
+      },
+      {
+        week: 2,
+        topic: 'Express.js Framework',
+        content: 'Building web applications with the Express.js framework.',
+      },
+      {
+        week: 3,
+        topic: 'Working with APIs',
+        content: 'Creating and consuming APIs using Node.js.',
+      },
+      {
+        week: 4,
+        topic: 'Database Integration with MongoDB',
+        content: 'Connecting and interacting with MongoDB for database management.',
+      },
+      {
+        week: 5,
+        topic: 'Authentication and Authorization',
+        content: 'Implementing user authentication and authorization in Node.js applications.',
+      },
+    ],
+    students: [
+      {
+        id: 401,
+        name: 'Michael Thompson',
+        email: 'michael@example.com',
+      },
+      {
+        id: 402,
+        name: 'Natalie Brown',
+        email: 'natalie@example.com',
+      },
+      {
+        id: 403,
+        name: 'Oliver Turner',
+        email: 'oliver@example.com',
+      },
+      {
+        id: 404,
+        name: 'Pamela Davis',
+        email: 'pamela@example.com',
+      },
+    ],
+    dueDate: '2023-12-25', 
+    progress: 40,
   },
 ];
 
